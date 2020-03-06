@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Navigation from './components/nav/Navigation'
+
 import './App.css';
 
 function App() {
+  const [article, setArticle] = useState(null);
+  useEffect(() => {
+    fetch('http://localhost/jppj/wp-json/wp/v2/pages/?accueil')
+      .then((res) => res.json())
+      .then((data) => setArticle(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Chorale</h1>
+      <h2>Articles</h2>
+      {article ? JSON.stringify(article[0].id) : 'loading...'}
+      <Navigation />
     </div>
   );
 }

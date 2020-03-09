@@ -13,7 +13,7 @@ function Navigation() {
 
       return (
         <nav>
-          {content}
+          Navigation
         </nav>
       );
     }

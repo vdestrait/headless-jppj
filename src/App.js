@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Navigation from './components/nav/Navigation'
+import Navigation from './components/nav/Navigation';
+import Header from "./components/header/Header";
+import Intro from "./components/home/intro/Intro";
+import Agenda from "./components/home/agenda/Agenda";
+//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import './App.css';
 
@@ -13,10 +17,13 @@ function App() {
 
   return (
     <div>
-      <h1>Chorale</h1>
+      <Navigation />
+      <Header />
+      <Intro />
+      <Agenda />
       <h2>Articles</h2>
       {article ? JSON.stringify(article[0].id) : 'loading...'}
-      <Navigation />
+      
     </div>
   );
 }

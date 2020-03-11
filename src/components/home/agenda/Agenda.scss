@@ -1,0 +1,47 @@
+@import "../../../App.scss";
+#agenda {
+    color: white;
+    background-color: $primary;
+    padding: 2rem 3rem;
+    overflow: auto;
+    .concert-dates {
+      margin-bottom: 2rem;
+      .date {
+        color: black;
+        font-size: 1.5rem;
+        font-family: "code_boldregular", "Open Sans", "Lucida Sans Unicode",
+          serif;
+      }
+      h3 {
+        margin-top: 0;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .modal-content {
+        border: none;
+        border-radius: 0;
+        color: black;
+        h4 {
+          margin: 0;
+        }
+        img.attachment-post-thumbnail {
+          width: 100%;
+          height: auto;
+          max-height: 180px;
+          object-fit: cover;
+        }
+        .modal-footer {
+          justify-content: flex-start;
+          a {
+            font-size: 1.5rem;
+            font-family: $title-fat-font;
+          }
+          h5,
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }

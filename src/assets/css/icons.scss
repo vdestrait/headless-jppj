@@ -1,0 +1,20 @@
+.close-icon {
+    width: 30px;
+  }
+.link-icon{
+width: 20px;
+margin-left: 10px;
+margin-top: -8px;
+    &:hover {
+        filter: invert(20%) sepia(99%) saturate(1904%) hue-rotate(199deg)
+        brightness(96%) contrast(101%);
+    }
+}
+.back-icon  {
+width: 25px;
+margin-top: -4px;
+}
+.music-icon {
+width: 80px;
+height: auto;
+}

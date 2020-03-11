@@ -1,0 +1,17 @@
+@import "../../../App.scss";
+
+.error404 {
+    text-align: center;
+    .content-404 {
+      margin-bottom: 5rem;
+      span {
+        font-size: 6rem;
+      }
+      p {
+        font-size: 2rem;
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }

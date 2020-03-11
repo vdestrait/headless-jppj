@@ -1,0 +1,11 @@
+@import "../../../App.scss";
+#listening {
+    color: white;
+    background-color: $secondary;
+    .sounds {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
+  }

@@ -1,0 +1,51 @@
+body {
+  font-family: $body-font;
+}
+
+h1,
+h2 {
+  font-family: $title-thin-font;
+}
+
+h3,
+h4 {
+  font-family: $title-fat-font;
+  margin: 1.5rem 0;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 4rem 1rem;
+  @include md-up {
+    font-size: 4rem;
+    margin: 4rem;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-family: $title-fat-font;
+}
+
+.thin {
+  font-family: "code_lightregular", "Open Sans", "Lucida Sans Unicode", serif;
+}
+
+a {
+  color: $secondary;
+  &hover {
+    color: $dark;
+  }
+}

@@ -1,0 +1,65 @@
+@import "../../../App.scss";
+#concert {
+    .concerts-cards {
+      text-align: center;
+      margin: 2rem 0;
+      & > div {
+        margin-bottom: 1rem;
+      }
+      .icon-wrap {
+        padding: 2rem 0;
+        cursor: pointer;
+      }
+      .arrow-down {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        //background-image: url(../../img/expand-arrow.png);
+        background-position: center;
+        background-size: cover;
+        &.expanded {
+          //background-image: url(../../img/collapse-arrow.png);
+        }
+      }
+      .card {
+        display: none;
+        position: relative;
+        border-radius: 0;
+        border: none;
+        color: white;
+        background-color: $dark-grey;
+        text-align: left;
+        .bcg-img {
+          height: 180px;
+        }
+        h4 {
+          display: none;
+        }
+      }
+    }
+    @include md-up {
+      .concerts-cards {
+        margin: 4rem 0;
+        & > div {
+          margin-bottom: 0;
+        }
+        .card {
+          display: none;
+          position: absolute;
+          top: -45px;
+          border-radius: 0;
+          border: none;
+          margin: -2rem 2rem 2rem 2rem;
+          color: white;
+          background-color: $dark-grey;
+          .bcg-img {
+            padding-top: 66.66%;
+          }
+          h4 {
+            display: block;
+            margin: 0 0 0.5rem 0;
+          }
+        }
+      }
+    }
+  }

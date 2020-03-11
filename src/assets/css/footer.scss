@@ -1,0 +1,69 @@
+footer {
+    text-align: center;
+    padding: 2rem 0 0.5rem;
+    color: white;
+    background-color: $dark-grey;
+
+    /* FORM*/
+    .evf-label{
+    	color: white;
+    	font-family: 'code_lightregular','Open Sans', "Lucida Sans Unicode", serif;
+    	letter-spacing: 1.5px;
+    }
+    .evf-field {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .button.evf-submit {
+    	color: white;
+    	background-color: $dark-grey;
+    	font-family: 'code_boldregular','Open Sans', "Lucida Sans Unicode", serif;
+    	letter-spacing: 1.5px;
+    	border-radius: 0;
+    	padding: 7.5px 15px;
+    }
+    input, textarea {
+    	background-color: $dark-grey;
+    }
+	.everest-forms label {
+		margin-bottom: 2px;
+		.required {
+	    	display: none;
+	    }
+	}
+
+    .socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    	a {
+            padding: 1rem; 
+            img {
+                height: 75px;
+                width: auto;
+            }
+    	}
+    }
+
+    .footer-menu-wrap {
+    	padding: 2rem;
+    }
+
+    .copy {
+    	font-family: 'Open Sans', sans-serif;
+    }
+    #menu-footer {
+        a {
+            padding: .75rem;
+            display: block;
+        }
+    }
+    @include md-up {
+        .evf-field {
+            max-width: 100%;
+        }
+        .socials {
+            flex-direction: column;
+        }
+    }
+} 

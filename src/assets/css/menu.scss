@@ -1,0 +1,83 @@
+.logged-in {
+    ul#menu-main {
+        top: 50px;
+    }
+    #brand-logo {
+        top: 50px;
+    }
+}
+
+.menu {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+        a {
+            color: white;
+            padding: 20px;
+        }
+    }
+}
+
+
+nav.navbar {
+    padding: 0;
+    #brand-logo {
+        position: fixed;
+        top: 10px;
+        left: 20px;
+        z-index: 9;
+        max-height: 60px;
+        width: auto;
+    }
+    ul {
+        position: fixed;
+        top: 20px;
+        right: 60px;
+        z-index: 8;
+        display: flex;
+    }
+    .navbar-toggler {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 98;
+        #burger-menu {
+            width: 40px;  
+        }
+    } 
+    .show ul{
+        background-color: $primary;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-top: 5rem;
+        li {
+            text-align: center;
+            a {
+                display: block;
+            }
+        }
+    }
+    &.menu-primary a {
+        color: $primary;
+    }
+    &.menu-secondary a {
+        color: $secondary;
+    }
+    &.menu-dark-grey a {
+        color: $dark-grey;
+    }
+}
+
+
+ul#menu-footer {
+    padding-left: 0;
+}
+
+a.target {
+    display: block;
+    position: relative;
+    top: -80px;
+    visibility: hidden;
+}

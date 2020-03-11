@@ -1,0 +1,50 @@
+@import "assets/css/fonts.scss";
+@import "assets/css/variables.scss";
+@import "assets/css/mixin.scss";
+@import "assets/css/typography.scss";
+@import "assets/css/icons.scss";
+@import "assets/css/menu.scss";
+@import "assets/css/header.scss";
+@import "assets/css/posts.scss";
+@import "assets/css/footer.scss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.bcg-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.bcg-wrap {
+  height: 100%;
+  overflow: hidden;
+  min-height: 165px;
+  margin-bottom: 2rem;
+}
+
+.bcg-wrap:hover .bcg-img {
+  transform: scale(1.2);
+}
+
+section {
+  padding: 2rem;
+}
+@include md-up {
+  section {
+    padding: 2rem;
+  }
+}

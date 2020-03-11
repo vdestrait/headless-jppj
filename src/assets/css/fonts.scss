@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'code_boldregular';
+    src: local('code_boldregular'),url('/fonts/code_bold-webfont.woff2') format('woff2'),
+    local('code_boldregular'),url('/fonts/code_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'code_lightregular';
+    src: local('code_lightregular'),url('/fonts/code_light-webfont.woff2') format('woff2'),
+        local('code_lightregular'),url('/fonts/code_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    
+}

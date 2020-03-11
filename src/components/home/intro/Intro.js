@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import sanitinizer from "../../../helpers/sanitinizer";
 
-function Intro() {
-    const [siteInfo, setSiteInfo] = useState(null);
-    useEffect(() => {
-      fetch('http://localhost/jppj/wp-json')
-        .then((res) => res.json())
-        .then((data) => setSiteInfo(data));
-    }, []);
+function Intro({ siteInfo, home }) {
   
     return (
       <div>
-        <h1>{siteInfo ? siteInfo.description : 'loading...'}</h1>
+        <h1>{siteInfo && siteInfo.description}</h1>
+        <div class="container" dangerouslySetInnerHTML={home && sanitinizer(home[0].content.rendered)}/>
       </div>
     );
   }

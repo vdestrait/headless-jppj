@@ -1,71 +1,81 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React, { useState, useEffect, useRef } from 'react';
+import Modal from "react-bootstrap/Modal";
+import "bootstrap/dist/css/bootstrap.min.css";
 import './Agenda.scss';
+import sanitinizer from '../../../helpers/sanitinizer';
 
 function Agenda({title}) {
     const [concerts, setConcerts] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+
     useEffect(() => {
-      fetch('http://localhost/jppj/wp-json/wp/v2/concerts')
+      fetch('http://localhost/jppj/wp-json/wp/v2/concerts?_embed')
         .then((res) => res.json())
         .then((data) => setConcerts(data));
     }, []);
+
+    const showModal = () => {
+      setIsOpen(true);
+    };
   
-      console.log(concerts);
+    const hideModal = () => {
+      setIsOpen(false);
+    };
+
     return (
         <div className="row concert-dates">
-        
+
             <div className="col-md-4">
                 <h2>{title}</h2>
             </div>
+
             <div className="col-md-8 pt-4">
-                {concerts && 
-                  (concerts.map(concert =>
+              {concerts && 
+                  (concerts.map((concert,index) =>
                     <>
-                      <div className="pointer" data-toggle="modal" data-target={`#modal-${concert.id}`}>
+                      <div onClick={showModal} className="pointer">
                         <span className="date">{concert.acf.date_time}</span>
                         <h3>{concert.title.rendered}</h3>
                       </div>
 
-                      <div className="modal fade" id={`modal-${concert.id}`} tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
-                        <div className="modal-dialog modal-dialog-centered" role="document">
-                          <div className="modal-content">
+                      <Modal show={isOpen} onHide={hideModal}>
+                        <Modal.Header>
+                            <Modal.Title>
+                            <h4>{concert.title.rendered}</h4>
+                            <button type="button" className="close" onClick={hideModal}>
+                                <img className="close-icon" src="/assets/img/close.png" alt="Close Icon"/>
+                            </button>
+                            </Modal.Title>
+                        </Modal.Header>
 
-                            <div className="modal-header">
-                              <h4 className={`modal-title-${concert.id}`} id="modalCenterTitle">{concert.title.rendered}</h4>
-                              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true"><img className="close-icon" src="img/close.png" alt="Close Icon"/></span>
-                              </button>
-                            </div>
-
-                          {/* <?php the_post_thumbnail(); ?> */}
-
-                          <div className="modal-body">
-                            <h5>{concert.acf.date_time}</h5>
-                            {concert.acf.text}
-                          </div>
-
-                              {concert.acf.location && (
-                                <div className="modal-footer">
-                                    <h5>Adresse :</h5>
-                                    <p>{concert.acf.location}</p>
-                                </div>
-                                )}
-                              
-                              {concert.acf.reservation && (
-                                <div className="modal-footer">
-                                  <a href={concert.acf.reservation} target="_blank" rel="noopener noreferrer">
-                                    R&eacute;servations
-                                    <img className="link-icon" src="img/external-link.svg" alt="Link Icon"/>
-                                  </a>
-                                </div>
-                              )}
-                            
-                          </div>
+                        <div className="concert-thumbnail">
+                            <img src={concert._embedded['wp:featuredmedia']['0'].source_url} alt={`Image ${concert.title.rendered}`} />
                         </div>
-                      </div>
+                        
+                        <Modal.Body>
+                            <h5>{concert.acf.date_time}</h5>
+                            <div dangerouslySetInnerHTML={sanitinizer(concert.acf.text)}></div>
+                        </Modal.Body>
+                        {concert.acf.location && (
+                            <Modal.Footer>
+                                <h5>Adresse :</h5>
+                                <p>{concert.acf.location}</p>
+                            </Modal.Footer>
+                        )}
+                        
+                        {concert.acf.reservation && (
+                            <Modal.Footer>
+                            <a href={concert.acf.reservation} target="_blank" rel="noopener noreferrer">
+                                R&eacute;servations
+                                <img className="link-icon" src="/assets/img/external-link.svg" alt="Link Icon"/>
+                            </a>
+                            </Modal.Footer>
+                        )}
+                      </Modal>
                     </>
-                  )) 
-                  }
-               
+                  ))}
             </div>
       </div>
     );

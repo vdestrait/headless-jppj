@@ -13,7 +13,7 @@ function Listening({ data, title }) {
                 {data &&
                   (data.map(track =>
                     <div className="col-md-6 sounds">
-                        <img className="music-icon" src="img/dj.png" alt="Icon of DJ"></img>
+                        <img className="music-icon" src="/assets/img/dj.png" alt="Icon of DJ"></img>
                         <h4 className="thin">{track.title}</h4>
                         <audio controls src={track.audio}></audio>
                     </div>

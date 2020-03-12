@@ -10,6 +10,15 @@ function ConcertCards() {
             setCards(data[0].acf.concerts_cards);
         });
     }, []);
+
+    const showCard = (e) => {
+        e.target.nextSibling.style.display = 'block';
+    }
+
+    const hideCard = (e) => {
+        //e.target.nextSibling.style.display = 'none';
+        console.log('hide');
+    }
     
     return (
     
@@ -17,7 +26,7 @@ function ConcertCards() {
             {cards ? 
             (cards.map(card =>
                 <div className="col-xs-12 col-lg-4">
-                    <div className="icon-wrap">
+                    <div onMouseEnter={showCard} onMouseLeave={hideCard}className="icon-wrap">
                         <img src={card.icon} alt={card.title + ' icône'}></img>
                         <h4 className="thin">{card.title}</h4> 
                         <div className="arrow-down arrow-expanding d-md-none" alt=""></div>
